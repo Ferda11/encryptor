@@ -1,13 +1,16 @@
-
-def saisir_cle(cle):
-    if len(cle) != 5:
-        print("La clé doit avoir une longueur de 5 caractères.")
-        return False
-    if not any(char.isalpha() for char in cle) or not any(char.isdigit() for char in cle):
-        print("La clé doit contenir à la fois des lettres et des chiffres.")
-        return False
-    
-    return True
+def saisir_cle():
+   compt=3
+   while compt>0:
+    cle_secrete=input("Entrer la cle secrete:")
+    if cle_secrete=='Ferda@11':
+        return cle_secrete
+    else:
+        compt-=1
+        print(f"cle incorrecte, il vous reste {compt} {'essais'if compt==1 else 'essais'}")
+    if compt==0:
+        print("vous ne pouvez pas essayer a nouveau")
+        exit()
+       
 
 def cryptage(text, cle):
     cryptage_text = ""
@@ -22,3 +25,15 @@ def cryptage(text, cle):
             cryptage_text += mot
     return cryptage_text
 
+def main():
+    cle_secrete=saisir_cle()
+    chiffrer=input("Entrer un mot:")
+    text_chiffer=cryptage(chiffrer,cle_secrete)
+    print(f"Le texte chiffre est:{text_chiffer}")
+    
+    
+if __name__ == "__main__":
+    main()
+
+    
+    
