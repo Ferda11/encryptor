@@ -1,3 +1,4 @@
-from encryptor import *
+from encryptor import cryptageTexte
 
-main()
+cryptage_instance = cryptageTexte()
+cryptage_instance.main()
